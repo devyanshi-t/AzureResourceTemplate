@@ -13,10 +13,10 @@ This Azure Resource Manager (ARM ) Template creates an Azure Virtual Network wit
 
 ## There are three ways to deploy an ARM template in Azure:
 1. Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a Virtual Network.<br/>
-2. Azure Command Line Interface(CLI)- On the Azure CLI type the command “az group deployment create --resource-group<Resource group name> --template-file<file name>” <br/>Then type in all the parameter  values in the CLI .Refer to the cli2.png file to see the implementation .<br/>
+2. Azure Command Line Interface(CLI)- On the Azure CLI type the command “az group deployment create --resource-group Resource group name --template-file filename ” <br/>Then type in all the parameter  values in the CLI .Refer to the cli2.png file to see the implementation .<br/>
 3. PowerShell-Type the commands:<br/> 
 a) cd <br/>
-b) New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template> <br/>
+b) New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile  path-to-template <br/>
 c) Then enter the values for the parameters in the templates.<br/>
 Refer to the powershell2.png file to see the implementation. <br/>Refer to the vnet2parameter.json file to see the default values for the parameters .
 
