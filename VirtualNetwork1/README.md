@@ -1,5 +1,5 @@
 # Template to deploy a Vnet
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdevyanshi-t%2FAzureTemplate%2Fmaster%2Fvnet.json"  target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdevyanshi-t%2FAzureTemplate%2Fmaster%2FVirtualNetwork1%2Fvnet.json"  target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/> 
 </a>
 
