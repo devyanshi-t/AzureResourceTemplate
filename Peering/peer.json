@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vNet1Name":{"type":"string"},
+        "vNet2Name":{"type":"string"}
+        
+    },
+    "variables": {
+    },
+    "resources": [
+        {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "[concat(parameters('vNet1Name'),'/Peering1')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": false,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                    "id": "[concat('/subscriptions/c2274ce7-76ae-4d5e-9761-381f040a464c/resourceGroups/DevyanshiFirstApp/providers/Microsoft.Network/virtualNetworks/',parameters('vNet2Name'))]"
+                }
+            }
+        },
+        {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "[concat(parameters('vNet2Name'),'/Peering')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": false,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                    "id": "[concat('/subscriptions/c2274ce7-76ae-4d5e-9761-381f040a464c/resourceGroups/MDevyanshiFirstApp/providers/Microsoft.Network/virtualNetworks/',parameters('vNet1Name'))]"
+                }
+            }
+        }
+        
+    ]
+}
