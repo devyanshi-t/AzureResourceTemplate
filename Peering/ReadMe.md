@@ -20,5 +20,5 @@ b) New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -Templat
 c) Then enter the values for the parameters in the templates.<br/>
  Refer to the parameter.json file to see the default values for the parameters .<br/>
  Note: In the peer. json file add your own subscrption id appropriately.<br/>
- Also note change the resource group  appropriately twice in the peer.jon file while deploying the template.
+ Also note ,change the resource group  appropriately twice in the peer.json file while deploying the template.
 
