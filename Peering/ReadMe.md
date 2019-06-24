@@ -1,4 +1,4 @@
-# Template to deploy a Vnet
+# Template to deploy  Vnet Peering
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdevyanshi-t%2FAzureResourceTemplate%2Fmaster%2Peering%2Fpeer.json"  target="_blank">
 <img src="http://azuredeploy.net/deploybutton.png"/> 
 </a>
