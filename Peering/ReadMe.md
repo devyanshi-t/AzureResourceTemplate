@@ -1,5 +1,5 @@
 # Template to deploy  Vnet Peering
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdevyanshi-t%2FAzureResourceTemplate%2Fmaster%2Peering%2Fpeer.json"  target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdevyanshi-t%2FAzureResourceTemplate%2Fmaster%2FPeering%2Fpeer.json"  target="_blank">
 <img src="http://azuredeploy.net/deploybutton.png"/> 
 </a>
 
@@ -18,5 +18,6 @@ This Azure Resource Manager (ARM ) Template creates an Azure Virtual  Network  P
 a) cd <br/>
 b) New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile path-to-template <br/>
 c) Then enter the values for the parameters in the templates.<br/>
- Refer to the parameter.json file to see the default values for the parameters .
+ Refer to the parameter.json file to see the default values for the parameters .<br/>
+ Note: in the peer. json file add your own subscrption id appropriately.
 
