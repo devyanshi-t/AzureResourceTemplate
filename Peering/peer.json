@@ -12,7 +12,7 @@
         {
             "apiVersion": "2019-02-01",
             "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
-            "name": "[concat(parameters('vNet1'),'/Peering1')]",
+            "name": "[concat(parameters('vNet1'),'/Peering1)]",
             "location": "[resourceGroup().location]",
             "properties": {
                 "allowVirtualNetworkAccess": true,
