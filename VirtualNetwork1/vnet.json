@@ -2,15 +2,12 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "name": {
+        "Vnetname": {
             "type": "string"},
-        "resourceGroup": {
-            "type": "string"
-        },
         "location": {
             "type": "string"
         },
-        "addressPrefix": {
+        "VnetaddressPrefix": {
             "type": "string"
         },
         "subnetName1": {
@@ -19,10 +16,14 @@
         "subnetName2": {
             "type": "string"
         },
+    
         "subnetAddressPrefix1": {
             "type": "string"
         },
         "subnetAddressPrefix2": {
+            "type": "string"
+        },
+        "subnetAddressPrefix3": {
             "type": "string"
         },
         
@@ -33,13 +34,13 @@
     "resources": [
         {
             "apiVersion": "2019-02-01",
-            "name": "[parameters('name')]",
+            "name": "[parameters('Vnetname')]",
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[parameters('location')]",
             "properties": {
-                "addressSpace": {
+                "VnetaddressSpace": {
                     "addressPrefixes": [
-                        "[parameters('addressPrefix')]"
+                        "[parameters('VnetaddressPrefix')]"
                     ]
                 },
                 "subnets": [
@@ -59,6 +60,14 @@
                         
                         
                         
+                        
+                    },
+                    {
+                        "name":"AzureFirewallSubnet",
+                        "properties":{
+                            
+                            "addressPrefix": "[parameters('subnetAddressPrefix3')]"
+                        }
                     }
                 ],
                 "enableDdosProtection": "[parameters('enableDdosProtection')]"
