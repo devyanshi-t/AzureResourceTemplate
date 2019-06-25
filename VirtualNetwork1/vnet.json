@@ -10,20 +10,20 @@
         "VnetaddressPrefix": {
             "type": "string"
         },
+        "subnetName1": {
+            "type": "string"
+        },
         "subnetName2": {
             "type": "string"
         },
-        "subnetName3": {
+    
+        "firewallSubnetAddressPrefix": {
             "type": "string"
         },
-    
         "subnetAddressPrefix1": {
             "type": "string"
         },
         "subnetAddressPrefix2": {
-            "type": "string"
-        },
-        "subnetAddressPrefix3": {
             "type": "string"
         },
         
@@ -45,17 +45,17 @@
                 },
                 "subnets": [
                     {
-                        "name": "[parameters('subnetName2')]",
+                        "name": "[parameters('subnetName1')]",
                         "properties": {
-                            "addressPrefix": "[parameters('subnetAddressPrefix2')]"
+                            "addressPrefix": "[parameters('subnetAddressPrefix1')]"
                         }
                     },
                     
                     {
-                        "name":"[parameters('subnetName3')]",
+                        "name":"[parameters('subnetName2')]",
                         "properties":{
                             
-                            "addressPrefix": "[parameters('subnetAddressPrefix3')]"
+                            "addressPrefix": "[parameters('subnetAddressPrefix2')]"
                         }
                         
                         
@@ -66,7 +66,7 @@
                         "name":"AzureFirewallSubnet",
                         "properties":{
                             
-                            "addressPrefix": "[parameters('subnetAddressPrefix1')]"
+                            "addressPrefix": "[parameters('firewallSubnetAddressPrefix')]"
                         }
                     }
                 ],
