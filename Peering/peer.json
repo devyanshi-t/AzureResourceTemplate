@@ -4,6 +4,10 @@
     "parameters": {
         "vNet1":{"type":"string"},
         "vNet2":{"type":"string"}
+        "virtualNetworkAccess":{"type":"bool"},
+        "forwardedTraffic":{"type":"bool"},
+        "gatewayTransit":{"type":"bool"},
+        "remoteGateways":{"type":"bool"}
         
     },
     "variables": {
@@ -15,12 +19,13 @@
             "name": "[concat(parameters('vNet1'),'/Peering')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "allowVirtualNetworkAccess": true,
-                "allowForwardedTraffic": false,
-                "allowGatewayTransit": false,
-                "useRemoteGateways": false,
+                
+                "allowVirtualNetworkAccess":"[parameters('virtualNetworkAccess')]",
+                "allowForwardedTraffic": "[parameters('forwardedTraffic')]",
+                "allowGatewayTransit": "[parameters('gatewayTransit')]",
+                "useRemoteGateways": "[parameters('remoteGateways')]",
                 "remoteVirtualNetwork": {
-                    "id": "[concat('/subscriptions/c2274ce7-76ae-4d5e-9761-381f040a464c/resourceGroups/DevyanshiFirstApp/providers/Microsoft.Network/virtualNetworks/',parameters('vNet2'))]"
+                    "id": "[resourceId('Microsoft.Network/virtualNetworks',parameters('vNet2'))]"
                 }
             }
         },
@@ -30,12 +35,12 @@
             "name": "[concat(parameters('vNet2'),'/Peering')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "allowVirtualNetworkAccess": true,
-                "allowForwardedTraffic": false,
-                "allowGatewayTransit": false,
-                "useRemoteGateways": false,
+                "allowVirtualNetworkAccess":"[parameters('virtualNetworkAccess')]",
+                "allowForwardedTraffic": "[parameters('forwardedTraffic')]",
+                "allowGatewayTransit": "[parameters('gatewayTransit')]",
+                "useRemoteGateways": "[parameters('remoteGateways')]",
                 "remoteVirtualNetwork": {
-                    "id": "[concat('/subscriptions/c2274ce7-76ae-4d5e-9761-381f040a464c/resourceGroups/DevyanshiFirstApp/providers/Microsoft.Network/virtualNetworks/',parameters('vNet1'))]"
+                    "id": "[resourceId('Microsoft.Network/virtualNetworks',parameters('vNet1'))]"
                 }
             }
         }
