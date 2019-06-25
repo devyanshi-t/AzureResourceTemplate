@@ -7,6 +7,18 @@
         },
         "vNet2": {
             "value": "Vnet2"
+        },
+        "virtualNetworkAccess": {
+            "value":false
+        },
+        "forwardedTraffic": {
+            "value": false
+        },
+        "gatewayTransit": {
+            "value": false
+        },
+        "remoteGateways": {
+            "value": false
         }
     }
 }
