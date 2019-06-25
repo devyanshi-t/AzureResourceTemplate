@@ -10,10 +10,10 @@
         "VnetaddressPrefix": {
             "type": "string"
         },
-        "subnetName1": {
+        "subnetName2": {
             "type": "string"
         },
-        "subnetName2": {
+        "subnetName3": {
             "type": "string"
         },
     
@@ -47,7 +47,7 @@
                     {
                         "name": "[parameters('subnetName2')]",
                         "properties": {
-                            "addressPrefix": "[parameters('subnetAddressPrefix1')]"
+                            "addressPrefix": "[parameters('subnetAddressPrefix2')]"
                         }
                     },
                     
@@ -55,7 +55,7 @@
                         "name":"[parameters('subnetName3')]",
                         "properties":{
                             
-                            "addressPrefix": "[parameters('subnetAddressPrefix2')]"
+                            "addressPrefix": "[parameters('subnetAddressPrefix3')]"
                         }
                         
                         
