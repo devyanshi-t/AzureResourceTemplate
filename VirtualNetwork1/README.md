@@ -9,7 +9,7 @@
 
 
 
-This Azure Resource Manager (ARM ) Template creates an Azure Virtual Network with two subnets in it.
+This Azure Resource Manager (ARM ) Template creates an Azure Virtual Network with three subnets in it.
 
 ## There are three ways to deploy an ARM template in Azure:
 1. Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a Virtual Network.<br/>

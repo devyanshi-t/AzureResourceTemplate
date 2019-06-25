@@ -17,13 +17,13 @@
       "subnetName2": {
         "value": "subnet2"
       },
-      "subnetAddressPrefix1": {
+      "firewallSubnetAddtessPrefix": {
         "value": "10.0.1.0/24"
       },
-      "subnetAddressPrefix2": {
+      "subnetAddressPrefix1": {
         "value": "10.0.2.0/24"
       },
-      "subnetAddressPrefix3": {
+      "subnetAddressPrefix2": {
           "value": "10.0.3.0/24"
       },
       "enableDdosProtection": {
