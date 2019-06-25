@@ -39,7 +39,7 @@
             "location": "[parameters('location')]",
             "properties": {
                 "VnetaddressSpace": {
-                    "addressPrefixes": [
+                    "VnetaddressPrefixes": [
                         "[parameters('VnetaddressPrefix')]"
                     ]
                 },
