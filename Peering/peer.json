@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vNet1":{"type":"string"},
-        "vNet2":{"type":"string"}
+        "vNet2":{"type":"string"},
         "virtualNetworkAccess":{"type":"bool"},
         "forwardedTraffic":{"type":"bool"},
         "gatewayTransit":{"type":"bool"},
