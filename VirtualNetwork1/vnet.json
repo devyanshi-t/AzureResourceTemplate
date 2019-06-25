@@ -38,8 +38,8 @@
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[parameters('location')]",
             "properties": {
-                "VnetaddressSpace": {
-                    "VnetaddressPrefixes": [
+                "addressSpace": {
+                    "addressPrefixes": [
                         "[parameters('VnetaddressPrefix')]"
                     ]
                 },
