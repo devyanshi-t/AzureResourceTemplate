@@ -2,32 +2,47 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "Vnetname": {
-        "value": "VNET"
-      },
-      "location": {
-        "value": "westus"
-      },
-      "VnetaddressPrefix": {
-        "value": "10.0.0.0/16"
-      },
-      "subnetName1": {
-        "value": "subnet1"
-      },
-      "subnetName2": {
-        "value": "subnet2"
-      },
-      "firewallSubnetAddtessPrefix": {
-        "value": "10.0.1.0/24"
-      },
-      "subnetAddressPrefix1": {
-        "value": "10.0.2.0/24"
-      },
-      "subnetAddressPrefix2": {
-          "value": "10.0.3.0/24"
-      },
-      "enableDdosProtection": {
-        "value": false
-      }
+        "Vnetname": {
+            "value": "vnettest"
+        },
+        "location": {
+            "value": "[resourceGroup().location]"
+        },
+        "VnetaddressPrefix": {
+            "value": "10.0.0.0/16"
+        },
+        "subnetName1": {
+            "value": "web"
+        },
+        "subnetName2": {
+            "value": "api"
+        },
+        "subnetName3": {
+            "value": "db"
+        },
+        "firewallSubnetAddressPrefix": {
+            "value": "10.0.1.0/24"
+        },
+        "subnetAddressPrefix1": {
+            "value": "10.0.2.0/24"
+        },
+        "subnetAddressPrefix2": {
+            "value": "10.0.3.0/24"
+        },
+        "subnetAddressPrefix3": {
+            "value": "10.0.4.0/24"
+        },
+        "Web_NSGName": {
+            "value": "Web_NSG"
+        },
+        "Aoi_NSGName": {
+            "value": "Api_NSG"
+        },
+        "Db_NSGName": {
+            "value": "Db_NSG"
+        },
+        "enableDdosProtection": {
+            "value": false
+        }
     }
-  }
+}
