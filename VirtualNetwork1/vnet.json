@@ -5,12 +5,19 @@
         "Vnetname": {
             "type": "string"},
         "location": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
         },
         "VnetaddressPrefix": {
-            
-            "type": "string"
-        },
+            "type": "string",
+            "defaultValue": "10.0.0.0/16",
+            "metadata": {
+                "description": " Virtual Network Address prefix"
+            }
+            },
         "subnetName1": {
             "type": "string"
         },
@@ -19,13 +26,27 @@
         },
     
         "firewallSubnetAddressPrefix": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "10.0.1.0/24",
+            "metadata": {
+                "description": "Address  Prefix of the firewall subnet"
+            }
+           
         },
         "subnetAddressPrefix1": {
-            "type": "string"
+            "type": "string",
+           "defaultValue": "10.0.2.0/24",
+            "metadata": {
+                "description": "Subnet-1 Prefix"
+            }
         },
         "subnetAddressPrefix2": {
-            "type": "string"
+        
+            "type": "string",
+            "defaultValue": "10.0.3.0/24",
+            "metadata": {
+                "description": "Subnet-2 Prefix"
+            }
         },
         
         "enableDdosProtection": {
