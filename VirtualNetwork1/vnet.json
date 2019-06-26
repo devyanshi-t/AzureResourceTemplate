@@ -3,7 +3,8 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "Vnetname": {
-            "type": "string"},
+            "type": "string"
+        },
         "location": {
             "type": "string",
             "defaultValue": "[resourceGroup().location]",
@@ -15,40 +16,67 @@
             "type": "string",
             "defaultValue": "10.0.0.0/16",
             "metadata": {
-                "description": " Virtual Network Address prefix"
+                "description": " The CIDR space for your Vnet. Virtual Network Address prefix"
             }
-            },
+        },
         "subnetName1": {
             "type": "string"
         },
         "subnetName2": {
             "type": "string"
         },
-    
+        "subnetName3": {
+            "type": "string"
+        },
         "firewallSubnetAddressPrefix": {
             "type": "string",
             "defaultValue": "10.0.1.0/24",
             "metadata": {
                 "description": "Address  Prefix of the firewall subnet"
             }
-           
         },
         "subnetAddressPrefix1": {
             "type": "string",
-           "defaultValue": "10.0.2.0/24",
+            "defaultValue": "10.0.2.0/24",
             "metadata": {
                 "description": "Subnet-1 Prefix"
             }
         },
         "subnetAddressPrefix2": {
-        
             "type": "string",
             "defaultValue": "10.0.3.0/24",
             "metadata": {
                 "description": "Subnet-2 Prefix"
             }
         },
-        
+        "subnetAddressPrefix3": {
+            "type": "string",
+            "defaultValue": "10.0.4.0/24",
+            "metadata": {
+                "description": "Subnet-2 Prefix"
+            }
+        },
+        "Web_NSGName": {
+            "type": "string",
+            "defaultValue": "Web_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to  Webserver Subnet"
+            }
+        },
+        "Api_NSGName": {
+            "type": "string",
+            "defaultValue": "Api_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to API  Subnet"
+            }
+        },
+        "Db_NSGName": {
+            "type": "string",
+            "defaultValue": "Db_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnet"
+            }
+        },
         "enableDdosProtection": {
             "type": "bool"
         }
@@ -56,9 +84,198 @@
     "resources": [
         {
             "apiVersion": "2019-02-01",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('Web_NSGName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "http_rule",
+                        "properties": {
+                            "description": "Allow http and https to web subnet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": ["80","443"],
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "httpapi_rule",
+                        "properties": {
+                            "description": "Allow  http to api",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges":[ "80","443"],
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix1')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix2')]",
+                            "access": "Allow",
+                            "priority": 101,
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "httpdb_rule",
+                        "properties": {
+                            "description": "Deny connection to database subnet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": "*",
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix1')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix3')]",
+                            "access": "Deny",
+                            "priority": 103,
+                            "direction": "Outbound"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2019-02-01",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('Api_NSGName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "http_rule",
+                        "properties": {
+                            "description": "Allow http",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": ["80","443"],
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix1')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix2')]",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "https_rule",
+                        "properties": {
+                            "description": "Allow connection from database",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges":[ "80","443"],
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix3')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix2')]",
+                            "access": "Allow",
+                            "priority": 101,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "httpweb_rule",
+                        "properties": {
+                            "description": "Allow  connection to web subnet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges":[ "80","443"],
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix2')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix1')]",
+                            "access": "Allow",
+                            "priority": 102,
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "httpapi_rule",
+                        "properties": {
+                            "description": "Allow  connection to database subnet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3306",
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix2')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix3')]",
+                            "access": "Allow",
+                            "priority": 103,
+                            "direction": "Outbound"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2019-02-01",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('Db_NSGName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "apitodb_rule",
+                        "properties": {
+                            "description": "Allow connection from api subnet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3306",
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix2')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix3')]",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "ssh_rule",
+                        "properties": {
+                            "description": "Allow SSH",
+                            "protocol": "tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix3')]",
+                            "access": "Allow",
+                            "priority": 120,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "dbtoapi_rule",
+                        "properties": {
+                            "description": "Allow  connection to api subnet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix3')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix2')]",
+                            "access": "Allow",
+                            "priority": 101,
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "dbtoweb_rule",
+                        "properties": {
+                            "description": "Deny  connection to web  subnet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "[parameters('subnetAddressPrefix3')]",
+                            "destinationAddressPrefix": "[parameters('subnetAddressPrefix1')]",
+                            "access": "Deny",
+                            "priority": 110,
+                            "direction": "Outbound"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2019-02-01",
             "name": "[parameters('Vnetname')]",
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('Web_NSGName'))]",
+                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('Api_NSGName'))]",
+                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('Db_NSGName'))]"
+            ],
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -69,25 +286,33 @@
                     {
                         "name": "[parameters('subnetName1')]",
                         "properties": {
-                            "addressPrefix": "[parameters('subnetAddressPrefix1')]"
+                            "addressPrefix": "[parameters('subnetAddressPrefix1')]",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('Web_NSGName'))]"
+                            }
                         }
                     },
-                    
                     {
-                        "name":"[parameters('subnetName2')]",
-                        "properties":{
-                            
-                            "addressPrefix": "[parameters('subnetAddressPrefix2')]"
+                        "name": "[parameters('subnetName2')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetAddressPrefix2')]",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('Api_NSGName'))]"
+                            }
                         }
-                        
-                        
-                        
-                        
                     },
                     {
-                        "name":"AzureFirewallSubnet",
-                        "properties":{
-                            
+                        "name": "[parameters('subnetName3')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetAddressPrefix3')]",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('Db_NSGName'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "AzureFirewallSubnet",
+                        "properties": {
                             "addressPrefix": "[parameters('firewallSubnetAddressPrefix')]"
                         }
                     }
