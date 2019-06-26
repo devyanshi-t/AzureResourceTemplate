@@ -123,7 +123,7 @@
                             "description": "Deny connection to database subnet",
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "destinationPortRanges": "*",
+                            "destinationPortRange": "*",
                             "sourceAddressPrefix": "[parameters('subnetAddressPrefix1')]",
                             "destinationAddressPrefix": "[parameters('subnetAddressPrefix3')]",
                             "access": "Deny",
