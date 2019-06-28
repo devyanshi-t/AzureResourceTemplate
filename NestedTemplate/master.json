@@ -221,7 +221,7 @@
                     "value": "[parameters('location')]"
                 },
                 "VnetaddressPrefix": {
-                    "value": "[parameters('addressPrefix1')]"
+                    "value": "[parameters('VnetaddressPrefix')]"
                 },
                 "subnetName1": {
                     "value": "[parameters('subnetName1')]"
