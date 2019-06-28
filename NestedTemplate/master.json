@@ -1,0 +1,339 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Vnetname": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+        "VnetaddressPrefix": {
+            "type": "string",
+            "defaultValue": "10.0.0.0/16",
+            "metadata": {
+                "description": " The CIDR space for your  first Vnet. Virtual Network Address prefix"
+            }
+        },
+        "subnetName1": {
+            "type": "string"
+        },
+        "subnetName2": {
+            "type": "string"
+        },
+        "subnetName3": {
+            "type": "string"
+        },
+        "firewallSubnetAddressPrefix": {
+            "type": "string",
+            "defaultValue": "10.0.1.0/24",
+            "metadata": {
+                "description": "Address  Prefix of the firewall subnet"
+            }
+        },
+        "subnetAddressPrefix1": {
+            "type": "string",
+            "defaultValue": "10.0.2.0/24",
+            "metadata": {
+                "description": "Subnet-1 Prefix"
+            }
+        },
+        "subnetAddressPrefix2": {
+            "type": "string",
+            "defaultValue": "10.0.3.0/24",
+            "metadata": {
+                "description": "Subnet-2 Prefix"
+            }
+        },
+        "subnetAddressPrefix3": {
+            "type": "string",
+            "defaultValue": "10.0.4.0/24",
+            "metadata": {
+                "description": "Subnet-2 Prefix"
+            }
+        },
+        "SecondVnetname": {
+            "type": "string"
+        },
+        "Secondlocation": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+        "SecondVnetaddressPrefix": {
+            "type": "string",
+            "defaultValue": "20.0.0.0/16",
+            "metadata": {
+                "description": " The CIDR space for your  second Vnet. Virtual Network Address prefix"
+            }
+        },
+        "SecondVnetsubnetName1": {
+            "type": "string"
+        },
+        "SecondVnetsubnetName2": {
+            "type": "string"
+        },
+        "SecondVnetsubnetName3": {
+            "type": "string"
+        },
+        "SecondVnetfirewallSubnetAddressPrefix": {
+            "type": "string",
+            "defaultValue": "20.0.1.0/24",
+            "metadata": {
+                "description": "Address  Prefix of the firewall subnet"
+            }
+        },
+        "SecondVnetsubnetAddressPrefix1": {
+            "type": "string",
+            "defaultValue": "20.0.2.0/24",
+            "metadata": {
+                "description": " Second Vnet Subnet-1 Prefix"
+            }
+        },
+        "SecondVnetsubnetAddressPrefix2": {
+            "type": "string",
+            "defaultValue": "20.0.3.0/24",
+            "metadata": {
+                "description": " Second Vnet Subnet-2 Prefix"
+            }
+        },
+        "SecondVnetsubnetAddressPrefix3": {
+            "type": "string",
+            "defaultValue": "20.0.4.0/24",
+            "metadata": {
+                "description": " Second Vnet Subnet-2 Prefix"
+            }
+        },
+        "Web_NSGName": {
+            "type": "string",
+            "defaultValue": "Web_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to  Webserver Subnets"
+            }
+        },
+        "Api_NSGName": {
+            "type": "string",
+            "defaultValue": "Api_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to API  Subnets"
+            }
+        },
+        "Db_NSGName": {
+            "type": "string",
+            "defaultValue": "Db_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnets"
+            }
+        },
+        "enableDdosProtection": {
+            "type": "bool"
+        },
+        
+        "virtualNetworkAccess": {
+            "type": "bool",
+            "metadata": {
+                "description": "Allow access to the virtual networks."
+            }
+        },
+        "forwardedTraffic": {
+            "type": "bool",
+            "metadata": {
+                "description": "allow traffic forwarded by a network virtual appliance in a virtual network"
+            }
+        },
+        "gatewayTransit": {
+            "type": "bool",
+            "metadata": {
+                "description": "If there is a virtual network gateway assosciated with the vnet."
+            }
+        },
+        "remoteGateways": {
+            "type": "bool",
+            "metadata": {
+                "description": "To allow traffic from  first Vnet to through second Vnet through the gateway of  second Vnet"
+            }
+        }
+        
+    },
+    
+    
+    "resources": [{
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-02-01",
+        "name": "Nsg",
+        "properties": {
+            "mode": "Incremental",
+            "templateLink": {
+                "uri": "",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "location": {
+                    "value": "[parameters('location')]"
+                },
+                "subnetAddressPrefix1": {
+                    "value": "[parameters('subnetAddressPrefix1')]"
+                },
+                "subnetAddressPrefix2": {
+                    "value": "[parameters('subnetAddressPrefix2')]"
+                },
+                "subnetAddressPrefix3": {
+                    "value": "[parameters('subnetAddressPrefix3')]"
+                },
+                "SecondVnetsubnetPrefix1": {
+                    "value": "[parameters('SecondVnetsubnetPrefix1')]"
+                },
+                "SecondVnetsubnetPrefix2": {
+                    "value": "[parameters('SecondVnetsubnetPrefix2')]"
+                },
+                "SecondVnetsubnetPrefix3": {
+                    "value": "[parameters('SecondVnetsubnetPrefix3')]"
+                }
+                
+            }
+        }
+    },
+    {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-02-01",
+        "name": "VNet1",
+        "dependsOn": ["Nsg"],
+        
+        "properties": {
+            "mode": "Incremental",
+            "templateLink": {
+                "uri": "",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "Vnetname": {
+                    "value": "[parameters('Vnetname')]"
+                },
+                "location": {
+                    "value": "[parameters('location')]"
+                },
+                "VnetaddressPrefix": {
+                    "value": "[parameters('addressPrefix1')]"
+                },
+                "subnetName1": {
+                    "value": "[parameters('subnetName1')]"
+                },
+                "subnetName2": {
+                    "value": "[parameters('subnetName2')]"
+                },
+                "subnetName3": {
+                    "value": "[parameters('subnetName3')]"
+                },
+                "subnetAddressPrefix1": {
+                    "value": "[parameters('subnetAddressPrefix1')]"
+                },
+                "subnetAddressPrefix2": {
+                    "value": "[parameters('subnetAddressPrefix2')]"
+                },
+                "subnetAddressPrefix3": {
+                    "value": "[parameters('subnetAddressPrefix3')]"
+                },
+                "firewallSubnetAddressPrefix": {
+                    "value": "[parameters('firewallSubnetAddressPrefix')]"
+                },
+                "enableDdosProtection": {
+                    "value": "[parameters('enableDdosProtection')]"
+                }
+            }
+        }
+        
+    },
+    
+    
+    {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-02-01",
+        "name": "Vnet2",
+        "dependsOn": ["Nsg"],
+        "properties": {
+            "mode": "Incremental",
+            "templateLink": {
+                "uri": "",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "SecondVnetname": {
+                    "value": "[parameters('Vnetname')]"
+                },
+                "SecondVnetaddressPrefix": {
+                    "value": "[parameters('SecondVnetaddressPrefix')]"
+                },
+                "Secondlocation": {
+                    "value": "[parameters('Secondlocation')]"
+                },
+                "SeondVnetsubnetName1": {
+                    "value": "[parameters('subnet1NameOfSecondVnet')]"
+                },
+                "SecondVnetsubnetName2": {
+                    "value": "[parameters('subnet2NameOfSecondVnet')]"
+                },
+                "SecondVnetsubnetName3": {
+                    "value": "[parameters('subnet3NameOfSecondVnet')]"
+                },
+                "SecondVnetsubnetAddressPrefix1": {
+                    "value": "[parameters('subnet1AddressPrefixOfSecondVnet')]"
+                },
+                "SecondVnetsubnetAddressPrefix2": {
+                    "value": "[parameters('subnet2AddressPrefixOfSecondVnet')]"
+                },
+                "SecondVnetsubnetAddressPrefix3": {
+                    "value": "[parameters('subnet3AddressPrefixOfSecondVnet')]"
+                },
+                "SecondfirewallSubnetAddressPrefix": {
+                    "value": "[parameters('SecondfirewallSubnetAddressPrefix')]"
+                },
+                "enableDdosProtection": {
+                    "value": "[parameters('enableDdosProtection')]"
+                }
+                
+            }
+        }
+    },
+    {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2019-02-01",
+        "name": "Peer",
+        "dependsOn": ["Vnet2", "Vnet1"],
+        "properties": {
+            "mode": "Incremental",
+            "templateLink": {
+                "uri": "",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "vNet1name": {
+                    "value": "[parameters('Vnetname')]"
+                },
+                "vNet2Name": {
+                    "value": "[parameters('SecondVnetname')]"
+                },
+                "virtualNetworkAccess": {
+                    "value": "[parameters('virtualNetworkAccess')]"
+                },
+                "forwardedTraffic": {
+                    "value": "[parameters('forwardedTraffic')]"
+                },
+                "gatewayTransit": {
+                    "value": "[parameters('gatewayTransit')]"
+                },
+                "RemoteGateways": {
+                    "value": "[parameters('remoteGateways')]"
+                }
+                
+            }
+        }
+    }
+    ]
+    
+}
