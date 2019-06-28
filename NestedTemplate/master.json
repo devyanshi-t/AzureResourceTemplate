@@ -370,6 +370,7 @@
                     "value": "[parameters('SecondVnetsubnetName3')]"
                 },
                 "subnetAddressPrefix1": {
+                    
                     "value": "[parameters('SecondVnetsubnetAddressPrefix1')]"
                 },
                 "subnetAddressPrefix2": {
