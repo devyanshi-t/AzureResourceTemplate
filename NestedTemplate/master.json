@@ -132,6 +132,27 @@
                 "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnets"
             }
         },
+        "Web1_NSGName": {
+            "type": "string",
+            "defaultValue": "Web_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to  Webserver Subnets"
+            }
+        },
+        "Api1_NSGName": {
+            "type": "string",
+            "defaultValue": "Api_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to API  Subnets"
+            }
+        },
+        "Db1_NSGName": {
+            "type": "string",
+            "defaultValue": "Db_NSG",
+            "metadata": {
+                "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnets"
+            }
+        },
         "enableDdosProtection": {
             "type": "bool"
         },
@@ -168,7 +189,7 @@
         {
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-05-01",
-        "name": "Nsg",
+        "name": "Nsg1",
         "properties": {
             "mode": "Incremental",
             "templateLink": {
@@ -178,6 +199,15 @@
             "parameters": {
                 "location": {
                     "value": "[parameters('location')]"
+                },
+                "Web_NSGName":{
+                    "value":"[parameters('Web_NSGName')]"
+                },
+                "Api_NSGName":{
+                    "value":"[parameters('Api_NSGName')]"
+                },
+                "Db_NSGName":{
+                    "value":"[parameters('Db_NSGName')]"
                 },
                 "subnetAddressPrefix1": {
                     "value": "[parameters('subnetAddressPrefix1')]"
@@ -201,12 +231,57 @@
             }
         }
     },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-05-01",
+            "name": "Nsg2",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/devyanshi-t/AzureResourceTemplate/master/NestedTemplate/nsgcreation.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[parameters('Secondlocation')]"
+                    },
+                    "Web_NSGName":{
+                        "value":"[parameters('Web1_NSGName')]"
+                    },
+                    "Api_NSGName":{
+                        "value":"[parameters('Api1_NSGName')]"
+                    },
+                    "Db_NSGName":{
+                        "value":"[parameters('Db1_NSGName')]"
+                    },
+                    "subnetAddressPrefix1": {
+                        "value": "[parameters('subnetAddressPrefix1')]"
+                    },
+                    "subnetAddressPrefix2": {
+                        "value": "[parameters('subnetAddressPrefix2')]"
+                    },
+                    "subnetAddressPrefix3": {
+                        "value": "[parameters('subnetAddressPrefix3')]"
+                    },
+                    "SecondVnetsubnetAddressPrefix1": {
+                        "value": "[parameters('SecondVnetsubnetAddressPrefix1')]"
+                    },
+                    "SecondVnetsubnetAddressPrefix2": {
+                        "value": "[parameters('SecondVnetsubnetAddressPrefix2')]"
+                    },
+                    "SecondVnetsubnetAddressPrefix3": {
+                        "value": "[parameters('SecondVnetsubnetAddressPrefix3')]"
+                    }
+                    
+                }
+            }
+        },
         
     {
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-05-01",
         "name": "Vnet1",
-        "dependsOn": ["Nsg"],
+        "dependsOn": ["Nsg1","Nsg2"],
         
         "properties": {
             "mode": "Incremental",
@@ -268,7 +343,7 @@
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-05-01",
         "name": "Vnet2",
-        "dependsOn": ["Nsg"],
+        "dependsOn": ["Nsg1","Nsg2"],
         "properties": {
             "mode": "Incremental",
             "templateLink": {
@@ -307,13 +382,13 @@
                     "value": "[parameters('SecondVnetfirewallSubnetAddressPrefix')]"
                 },
                 "Web_NSGName":{
-                    "value":"[parameters('Web_NSGName')]"
+                    "value":"[parameters('Web1_NSGName')]"
                 },
                 "Api_NSGName":{
-                    "value":"[parameters('Api_NSGName')]"
+                    "value":"[parameters('Api1_NSGName')]"
                 },
                 "Db_NSGName":{
-                    "value":"[parameters('Db_NSGName')]"
+                    "value":"[parameters('Db1_NSGName')]"
                 },
                 "enableDdosProtection": {
                     "value": "[parameters('enableDdosProtection')]"
