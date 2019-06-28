@@ -18,9 +18,7 @@
         "subnetAddressPrefix3": {
             "type": "string"
         },
-        "SecondVnetname": {
-            "type": "string"
-        },
+        
         
        
        "Secondlocation": {
