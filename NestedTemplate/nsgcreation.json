@@ -77,8 +77,8 @@
                     "protocol": "*",
                     "sourcePortRange": "*",
                     "destinationPortRanges": [
-                        "80",
-                        "443"
+                        "81",
+                        "444"
                     ],
                     "sourceAddressPrefixes": ["[parameters('subnetAddressPrefix1')]", "[parameters('SecondVnetsubnetAddressPrefix1')]"],
                     "destinationAddressPrefixes": ["[parameters('subnetAddressPrefix2')]", "[parameters('SecondVnetsubnetAddressPrefix2')]"],
@@ -134,8 +134,8 @@
                     "protocol": "*",
                     "sourcePortRange": "*",
                     "destinationPortRanges": [
-                        "80",
-                        "443"
+                        "81",
+                        "444"
                     ],
                     "sourceAddressPrefixes": ["[parameters('subnetAddressPrefix3')]", "[parameters('SecondVnetsubnetAddressPrefix3')]"],
                     "destinationAddressPrefixes": ["[parameters('subnetAddressPrefix2')]", "[parameters('SecondVnetsubnetAddressPrefix2')]"],
@@ -151,8 +151,8 @@
                     "protocol": "*",
                     "sourcePortRange": "*",
                     "destinationPortRanges": [
-                        "80",
-                        "443"
+                        "82",
+                        "445"
                     ],
                     "sourceAddressPrefixes": ["[parameters('subnetAddressPrefix2')]", "[parameters('SecondVnetsubnetAddressPrefix2')]"],
                     "destinationAddressPrefixes": ["[parameters('subnetAddressPrefix1')]", "[parameters('SecondVnetsubnetAddressPrefix1')]"],
