@@ -165,7 +165,7 @@
     
     "resources": [{
         "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2019-02-01",
+        "apiVersion": "2019-05-01",
         "name": "Nsg",
         "properties": {
             "mode": "Incremental",
@@ -186,14 +186,14 @@
                 "subnetAddressPrefix3": {
                     "value": "[parameters('subnetAddressPrefix3')]"
                 },
-                "SecondVnetsubnetPrefix1": {
-                    "value": "[parameters('SecondVnetsubnetPrefix1')]"
+                "SecondVnetsubnetAddressPrefix1": {
+                    "value": "[parameters('SecondVnetsubnetAddressPrefix1')]"
                 },
-                "SecondVnetsubnetPrefix2": {
-                    "value": "[parameters('SecondVnetsubnetPrefix2')]"
+                "SecondVnetsubnetAddressPrefix2": {
+                    "value": "[parameters('SecondVnetsubnetAddressPrefix2')]"
                 },
-                "SecondVnetsubnetPrefix3": {
-                    "value": "[parameters('SecondVnetsubnetPrefix3')]"
+                "SecondVnetsubnetAddressPrefix3": {
+                    "value": "[parameters('SecondVnetsubnetAddressPrefix3')]"
                 }
                 
             }
@@ -201,7 +201,7 @@
     },
     {
         "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2019-02-01",
+        "apiVersion": "2019-05-01",
         "name": "VNet1",
         "dependsOn": ["Nsg"],
         
@@ -253,7 +253,7 @@
     
     {
         "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2019-02-01",
+        "apiVersion": "2019-05-01",
         "name": "Vnet2",
         "dependsOn": ["Nsg"],
         "properties": {
@@ -263,35 +263,35 @@
                 "contentVersion": "1.0.0.0"
             },
             "parameters": {
-                "SecondVnetname": {
+                "Vnetname": {
                     "value": "[parameters('Vnetname')]"
                 },
-                "SecondVnetaddressPrefix": {
+                "VnetaddressPrefix": {
                     "value": "[parameters('SecondVnetaddressPrefix')]"
                 },
-                "Secondlocation": {
+                "location": {
                     "value": "[parameters('Secondlocation')]"
                 },
-                "SeondVnetsubnetName1": {
-                    "value": "[parameters('subnet1NameOfSecondVnet')]"
+                "subnetName1": {
+                    "value": "[parameters('SecondVnetsubnetName1')]"
                 },
-                "SecondVnetsubnetName2": {
-                    "value": "[parameters('subnet2NameOfSecondVnet')]"
+                "subnetName2": {
+                    "value": "[parameters('SecondVnetsubnetName2')]"
                 },
-                "SecondVnetsubnetName3": {
-                    "value": "[parameters('subnet3NameOfSecondVnet')]"
+                "subnetName3": {
+                    "value": "[parameters('SecondVnetsubnetName3')]"
                 },
-                "SecondVnetsubnetAddressPrefix1": {
-                    "value": "[parameters('subnet1AddressPrefixOfSecondVnet')]"
+                "subnetAddressPrefix1": {
+                    "value": "[parameters('')]"
                 },
-                "SecondVnetsubnetAddressPrefix2": {
-                    "value": "[parameters('subnet2AddressPrefixOfSecondVnet')]"
+                "AddressPrefix2": {
+                    "value": "[parameters('SecondVnetsubnetAddressPrefix2')]"
                 },
-                "SecondVnetsubnetAddressPrefix3": {
-                    "value": "[parameters('subnet3AddressPrefixOfSecondVnet')]"
+                "subnetAddressPrefix3": {
+                    "value": "[parameters('SecondVnetsubnetAddressPrefix3')]"
                 },
-                "SecondfirewallSubnetAddressPrefix": {
-                    "value": "[parameters('SecondfirewallSubnetAddressPrefix')]"
+                "firewallSubnetAddressPrefix": {
+                    "value": "[parameters('SecondSecondfirewallSubnetAddressPrefix')]"
                 },
                 "enableDdosProtection": {
                     "value": "[parameters('enableDdosProtection')]"
@@ -302,7 +302,7 @@
     },
     {
         "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2019-02-01",
+        "apiVersion": "2019-05-01",
         "name": "Peer",
         "dependsOn": ["Vnet2", "Vnet1"],
         "properties": {
@@ -312,10 +312,10 @@
                 "contentVersion": "1.0.0.0"
             },
             "parameters": {
-                "vNet1name": {
+                "vNet1": {
                     "value": "[parameters('Vnetname')]"
                 },
-                "vNet2Name": {
+                "vNet2": {
                     "value": "[parameters('SecondVnetname')]"
                 },
                 "virtualNetworkAccess": {

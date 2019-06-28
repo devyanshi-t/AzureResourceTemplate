@@ -27,12 +27,7 @@
         "subnetName3": {
             "type": "string"
         },
-        "firewallSubnetAddressPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Address  Prefix of the firewall subnet"
-            }
-        },
+       
         "subnetAddressPrefix1": {
             "type": "string",
             "metadata": {
@@ -51,7 +46,12 @@
                 "description": "Subnet-2 Prefix"
             }
         },
-        
+        "firewallSubnetAddressPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Address  Prefix of the firewall subnet"
+            }
+        },
         "enableDdosProtection": {
             "type": "bool"
         }
