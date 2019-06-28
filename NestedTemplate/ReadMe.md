@@ -12,6 +12,7 @@ Note: Incase of Disaster Recovery we are modifying the database NSG so that the 
 <p allign="center">
 <img src="./highlevel.png">
 </p>
+
 ## There are three ways to deploy an ARM template in Azure:
 ### 1. Using Deploy
 
