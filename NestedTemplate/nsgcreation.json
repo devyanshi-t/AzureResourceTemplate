@@ -6,9 +6,7 @@
         "location": {
             "type": "string"
         },
-        "VnetaddressPrefix": {
-            "type": "string"
-        },
+       
        
         
         "subnetAddressPrefix1": {
@@ -23,9 +21,7 @@
         "SecondVnetname": {
             "type": "string"
         },
-        "SecondVnetaddressPrefix": {
-            "type": "string"
-        },
+        
        
        "Secondlocation": {
            "type": "string"
