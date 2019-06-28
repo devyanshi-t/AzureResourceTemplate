@@ -264,7 +264,7 @@
             },
             "parameters": {
                 "Vnetname": {
-                    "value": "[parameters('Vnetname')]"
+                    "value": "[parameters('SecondVnetname')]"
                 },
                 "VnetaddressPrefix": {
                     "value": "[parameters('SecondVnetaddressPrefix')]"

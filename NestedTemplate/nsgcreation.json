@@ -38,7 +38,9 @@
             "type": "string"
         },
        
-        
+       "Secondlocation": {
+           "type": "string"
+       },
        
         "SecondVnetsubnetName1": {
             "type": "string"
