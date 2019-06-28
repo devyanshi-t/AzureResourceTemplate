@@ -18,13 +18,6 @@
         "subnetAddressPrefix3": {
             "type": "string"
         },
-        
-        
-       
-       "Secondlocation": {
-           "type": "string"
-       },
-       
      
         "SecondVnetsubnetAddressPrefix1": {
             "type": "string"
