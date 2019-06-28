@@ -2,25 +2,14 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "Vnetname": {
-            "type": "string"
-        },
+     
         "location": {
             "type": "string"
         },
         "VnetaddressPrefix": {
             "type": "string"
         },
-        
-        "subnetName1": {
-            "type": "string"
-        },
-        "subnetName2": {
-            "type": "string"
-        },
-        "subnetName3": {
-            "type": "string"
-        },
+       
         
         "subnetAddressPrefix1": {
             "type": "string"
@@ -42,15 +31,7 @@
            "type": "string"
        },
        
-        "SecondVnetsubnetName1": {
-            "type": "string"
-        },
-        "SecondVnetsubnetName2": {
-            "type": "string"
-        },
-        "SecondVnetsubnetName3": {
-            "type": "string"
-        },
+     
         "SecondVnetsubnetAddressPrefix1": {
             "type": "string"
         },
@@ -80,9 +61,6 @@
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnets"
             }
-        },
-        "enableDdosProtection": {
-            "type": "bool"
         }
     },
     "resources": [{

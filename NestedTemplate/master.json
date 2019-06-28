@@ -2,7 +2,7 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "Vnetname": {
+        "Vnet1name": {
             "type": "string"
         },
         "location": {
@@ -202,7 +202,7 @@
     {
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-05-01",
-        "name": "VNet1",
+        "name": "Vnet1",
         "dependsOn": ["Nsg"],
         
         "properties": {
@@ -213,7 +213,7 @@
             },
             "parameters": {
                 "Vnetname": {
-                    "value": "[parameters('Vnetname')]"
+                    "value": "[parameters('Vnet1name')]"
                 },
                 "location": {
                     "value": "[parameters('location')]"
@@ -313,7 +313,7 @@
             },
             "parameters": {
                 "vNet1": {
-                    "value": "[parameters('Vnetname')]"
+                    "value": "[parameters('Vnet1name')]"
                 },
                 "vNet2": {
                     "value": "[parameters('SecondVnetname')]"
