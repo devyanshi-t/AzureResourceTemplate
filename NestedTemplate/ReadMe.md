@@ -17,7 +17,7 @@ Note: Incase of Disaster Recovery we are modifying the database NSG so that the 
 </a>
 <a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-AAD-DomainServices%2Fazuredeploy.json" target="_blank">
 <img src="http://armviz.io/visualizebutton.png"/> 
-</a>
+</a></br>
 Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a Virtual Network.<br/>
 
 ### 2. Azure Command Line Interface(CLI)
