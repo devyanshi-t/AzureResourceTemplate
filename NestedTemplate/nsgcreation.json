@@ -80,7 +80,7 @@
                         "80",
                         "443"
                     ],
-                    "sourceAddressPrefix": ["[parameters('subnetAddressPrefix1')]", "[parameters('SecondVnetsubnetAddressPrefix1')]"],
+                    "sourceAddressPrefixes": ["[parameters('subnetAddressPrefix1')]", "[parameters('SecondVnetsubnetAddressPrefix1')]"],
                     "destinationAddressPrefixes": ["[parameters('subnetAddressPrefix2')]", "[parameters('SecondVnetsubnetAddressPrefix2')]"],
                     "access": "Allow",
                     "priority": 101,

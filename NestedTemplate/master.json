@@ -163,7 +163,8 @@
     },
     
     
-    "resources": [{
+    "resources": [
+        {
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-05-01",
         "name": "Nsg",
@@ -199,6 +200,7 @@
             }
         }
     },
+        
     {
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-05-01",
