@@ -54,7 +54,19 @@
         },
         "enableDdosProtection": {
             "type": "bool"
-        }
+        },
+        "Web_NSGName": {
+            "type": "string",
+           
+        },
+        "Api_NSGName": {
+            "type": "string",
+           
+        },
+        "Db_NSGName": {
+            "type": "string",
+           
+        },
     },
     "resources": [{
         "apiVersion": "2019-02-01",

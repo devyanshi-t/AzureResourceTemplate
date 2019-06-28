@@ -244,6 +244,16 @@
                 "firewallSubnetAddressPrefix": {
                     "value": "[parameters('firewallSubnetAddressPrefix')]"
                 },
+                "Web_NSGName":{
+                    "value":"[parameters('Web_NSGName')]"
+                },
+                "Api_NSGName":{
+                    "value":"[parameters('Api_NSGName')]"
+                },
+                "Db_NSGName":{
+                    "value":"[parameters('Db_NSGName')]"
+                },
+                
                 "enableDdosProtection": {
                     "value": "[parameters('enableDdosProtection')]"
                 }
@@ -294,6 +304,15 @@
                 },
                 "firewallSubnetAddressPrefix": {
                     "value": "[parameters('SecondSecondfirewallSubnetAddressPrefix')]"
+                },
+                "Web_NSGName":{
+                    "value":"[parameters('Web_NSGName')]"
+                },
+                "Api_NSGName":{
+                    "value":"[parameters('Api_NSGName')]"
+                },
+                "Db_NSGName":{
+                    "value":"[parameters('Db_NSGName')]"
                 },
                 "enableDdosProtection": {
                     "value": "[parameters('enableDdosProtection')]"
