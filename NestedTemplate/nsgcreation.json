@@ -6,9 +6,6 @@
         "location": {
             "type": "string"
         },
-       
-       
-        
         "subnetAddressPrefix1": {
             "type": "string"
         },
@@ -245,61 +242,6 @@
             }
             ]
         }
-    },
-    {
-        "apiVersion": "2019-02-01",
-        "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-        "type": "Microsoft.Network/virtualNetworks",
-        "location": "[parameters('location')]",
-        "dependsOn": [
-            "[concat('Microsoft.Network/networkSecurityGroups/', parameters('Web_NSGName'))]",
-            "[concat('Microsoft.Network/networkSecurityGroups/', parameters('Api_NSGName'))]",
-            "[concat('Microsoft.Network/networkSecurityGroups/', parameters('Db_NSGName'))]"
-        ],
-        "properties": {
-            "addressSpace": {
-                "addressPrefixes": [
-                    "[parameters('VnetaddressPrefix')]"
-                ]
-            },
-            
-            "subnets": [{
-                "name": "[parameters('subnetName1')]",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix1')]",
-                    "networkSecurityGroup": {
-                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('Web_NSGName'))]"
-                    }
-                }
-            },
-            {
-                "name": "[parameters('subnetName2')]",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix2')]",
-                    "networkSecurityGroup": {
-                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('Api_NSGName'))]"
-                    }
-                }
-            },
-            {
-                "name": "[parameters('subnetName3')]",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix3')]",
-                    "networkSecurityGroup": {
-                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('Db_NSGName'))]"
-                    }
-                }
-            },
-            {
-                "name": "AzureFirewallSubnet",
-                "properties": {
-                    "addressPrefix": "[parameters('firewallSubnetAddressPrefix')]"
-                }
-            }
-            ],
-            "enableDdosProtection": "[parameters('enableDdosProtection')]"
-        }
-        
     }
     ],
     "outputs": {}
