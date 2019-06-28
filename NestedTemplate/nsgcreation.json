@@ -11,10 +11,7 @@
         "VnetaddressPrefix": {
             "type": "string"
         },
-        "firewallSubnetAddressPrefix": {
-            "type": "string"
         
-            }
         "subnetName1": {
             "type": "string"
         },
@@ -40,10 +37,8 @@
         "SecondVnetaddressPrefix": {
             "type": "string"
         },
-        "SecondfirewallSubnetAddressPrefix": {
-            "type": "string"
-            
-        }
+       
+        
        
         "SecondVnetsubnetName1": {
             "type": "string"
