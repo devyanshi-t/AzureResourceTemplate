@@ -82,13 +82,7 @@
         "SecondVnetsubnetName3": {
             "type": "string"
         },
-        "SecondVnetfirewallSubnetAddressPrefix": {
-            "type": "string",
-            "defaultValue": "20.0.1.0/24",
-            "metadata": {
-                "description": "Address  Prefix of the firewall subnet"
-            }
-        },
+     
         "SecondVnetsubnetAddressPrefix1": {
             "type": "string",
             "defaultValue": "20.0.2.0/24",
@@ -108,6 +102,13 @@
             "defaultValue": "20.0.4.0/24",
             "metadata": {
                 "description": " Second Vnet Subnet-2 Prefix"
+            }
+        },
+        "SecondVnetfirewallSubnetAddressPrefix": {
+            "type": "string",
+            "defaultValue": "20.0.1.0/24",
+            "metadata": {
+                "description": "Address  Prefix of the firewall subnet"
             }
         },
         "Web_NSGName": {
@@ -294,16 +295,16 @@
                     "value": "[parameters('SecondVnetsubnetName3')]"
                 },
                 "subnetAddressPrefix1": {
-                    "value": "[parameters('')]"
+                    "value": "[parameters('SecondVnetsubnetAddressPrefix1')]"
                 },
-                "AddressPrefix2": {
+                "subnetAddressPrefix2": {
                     "value": "[parameters('SecondVnetsubnetAddressPrefix2')]"
                 },
                 "subnetAddressPrefix3": {
                     "value": "[parameters('SecondVnetsubnetAddressPrefix3')]"
                 },
                 "firewallSubnetAddressPrefix": {
-                    "value": "[parameters('SecondSecondfirewallSubnetAddressPrefix')]"
+                    "value": "[parameters('SecondVnetfirewallSubnetAddressPrefix')]"
                 },
                 "Web_NSGName":{
                     "value":"[parameters('Web_NSGName')]"
