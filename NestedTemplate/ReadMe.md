@@ -9,8 +9,9 @@ In this template  two virtual networks are created  with three subnets each and 
 Note: Incase of Disaster Recovery we are modifying the database NSG so that the database subnet of virtual network 1 can send its replica to database subnet of virtual network 2 through a specific port.
 
 ## Architecture implemented
-
-
+<p allign="center">
+<img src="./highlevel.png">
+</p>
 ## There are three ways to deploy an ARM template in Azure:
 ### 1. Using Deploy
 
