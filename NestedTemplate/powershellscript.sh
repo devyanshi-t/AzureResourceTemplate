@@ -6,7 +6,7 @@ $customport=3307
 $rule1="DisasterRecoveryRule1"
 $rule2="DisasterRecoveryRule2"
 
-$nsgname1="Db_NSG1" #Change the Name according to need
+$nsgname1="Db_NSG" #Change the Name according to need
 $nsgname2="Db_NSG2"
 
 $resource = Get-AzResource | Where {$_.ResourceGroupName –eq $ResourceGroupName -and $_.ResourceType -eq "Microsoft.Network/networkSecurityGroups"}
