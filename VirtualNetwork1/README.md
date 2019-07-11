@@ -14,9 +14,8 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 This Azure Resource Manager (ARM ) Template creates an Azure Virtual Network with three subnets in it.
 
 ## There are three ways to deploy an ARM template in Azure:
-1. Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a Virtual Network.<br/>
-2. Azure Command Line Interface(CLI)- On the Azure CLI type the command 
-<br />
+### 1. Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a Virtual Network.<br/>
+### 2. Azure Command Line Interface(CLI)
 <a href="https://shell.azure.com" target="_blank">
 <img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" data-linktype="external">
 </a>
@@ -27,7 +26,7 @@ az group deployment create --resource-group Resource group name --template-file 
 ```
  
 Then type in all the parameter  values in the CLI .Refer to the cli.png file to see the implementation .<br/>
-3. PowerShell-Type the commands:<br/> 
+### 3. PowerShell
 <br />
 <a href="https://shell.azure.com" target="_blank">
 <img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" data-linktype="external">

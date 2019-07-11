@@ -14,8 +14,8 @@ An Azure storage account contains all of your Azure Storage data objects: blobs,
 This Azure Resource Manager (ARM ) Template creates an Azure  Storage Account .
 
 ## There are three ways to deploy an ARM template in Azure:
-1. Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a storage account.<br/>
-2. Azure Command Line Interface(CLI)- On the Azure CLI type the command 
+### 1. Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a storage account.<br/>
+### 2. Azure Command Line Interface(CLI)
 <br />
 <a href="https://shell.azure.com" target="_blank">
 <img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" data-linktype="external">
@@ -28,7 +28,7 @@ New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFi
 ```
 
 
-3. PowerShell-Type the commands:<br/> 
+### 3. PowerShell
 
 <br />
 <a href="https://shell.azure.com" target="_blank">
