@@ -22,7 +22,7 @@ Figure 1.3 High Level View of the Architecture </br>
 </p>
 
 ## There are three ways to deploy an ARM template in Azure:
-### 1. Using Deploy
+### <b>1. Using Deploy</b>
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdevyanshi-t%2FAzureResourceTemplate%2Fmaster%2FNestedTemplate%2Fmaster.json"  target="_blank">
 <img src="http://azuredeploy.net/deploybutton.png"/> 
@@ -32,7 +32,7 @@ Figure 1.3 High Level View of the Architecture </br>
 </a></br>
 Click on the deploy button above, you will be redirected  to Azure where you can fill in all the parameters in ARM template to create a Virtual Network.<br/>
 
-### 2. Azure Command Line Interface(CLI)
+###  <b>  2. Azure Command Line Interface(CLI)</b>
 
 On the Azure CLI type the command  and then type in all the parameter values in the CLI. 
 <br />
@@ -44,7 +44,7 @@ On the Azure CLI type the command  and then type in all the parameter values in 
 ```bash
 az group deployment create --resource-group Resource group name --template-file file name
 ```
-### 3. PowerShell 
+### <b> 3. PowerShell </b>
 <br />
 <a href="https://shell.azure.com" target="_blank">
 <img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" data-linktype="external">

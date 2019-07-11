@@ -15,8 +15,8 @@ Virtual network peering enables you to seamlessly connect Azure virtual networks
 This Azure Resource Manager (ARM ) Template creates an Azure Virtual  Network  Peering  between two virtual network .
 
 ## There are three ways to deploy an ARM template in Azure:
-1. Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a Virtual Network Peering.<br/>
-2. Azure Command Line Interface(CLI)- On the Azure CLI type the command 
+### Azure Portal- Click on the deploy button above ,you will be redirected  to Azure where you can fill in all the parameters  in ARM template to create a Virtual Network Peering.<br/>
+### Azure Command Line Interface(CLI)
 <br />
 <a href="https://shell.azure.com" target="_blank">
 <img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" data-linktype="external">
@@ -28,7 +28,7 @@ cd
 New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile path-to-template 
 ```
 
-3. PowerShell-
+###  3. PowerShell
 <br />
 <a href="https://shell.azure.com" target="_blank">
 <img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" data-linktype="external">
