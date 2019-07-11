@@ -4,7 +4,6 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdevyanshi-t%2FAzureResourceTemplate%2Fmaster%2FVirtualNetwork1%2Fvnet.json"  target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/> 
 </a>
-
 <a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-AAD-DomainServices%2Fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/> 
 </a>
@@ -32,12 +31,14 @@ Then type in all the parameter  values in the CLI .Refer to the cli.png file to 
 <img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" data-linktype="external">
 </a>
 </br>
-``` bash
 
- cd 
- New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile path-to-template <br/>
+```bash 
+New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile path-to-template 
 ```
-Refer to the powershell.png file to see the implementation. <br/>Refer to the vnetparameter.json file to see the default values for the parameters .
+ 
+ 
+
+Refer to the powershell.png file to see the implementation. <br/>Refer to the vnetparameter.json file to see the default values for the parameters .<br/>
 
 ## Author
 [`Devyanshi Tiwari`](https://github.com/devyanshi-t)<br />

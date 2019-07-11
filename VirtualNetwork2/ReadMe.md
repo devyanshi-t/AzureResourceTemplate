@@ -5,7 +5,6 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdevyanshi-t%2FAzureResourceTemplate%2Fmaster%2FVirtualNetwork2%2Fvnet2.json"  target="_blank">
 <img src="http://azuredeploy.net/deploybutton.png"/> 
 </a>
-
 <a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-AAD-DomainServices%2Fazuredeploy.json" target="_blank">
 <img src="http://armviz.io/visualizebutton.png"/> 
 </a>
@@ -36,11 +35,12 @@ New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFi
 </a>
 </br>
 
-Type the commands:
+
 ```bash 
 cd 
 New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile path-to-template 
 ```
+
 
 Refer to the powershell2.png file to see the implementation. <br/>Refer to the vnet2parameter.json file to see the default values for the parameters .
 

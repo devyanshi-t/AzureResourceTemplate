@@ -41,6 +41,7 @@ cd
 New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile path-to-template 
 ```
 
+
 Refer to the powershell_sa.png file to see the implementation. <br/>Refer to the tempparameter.json file to see the default values for the parameters .
 
 ## Author
