@@ -54,6 +54,4 @@ New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFi
 Note: Do change the directory to home before executing the command.
 <br/>Refer to the vnetparameter.json file to see the default values for the parameters .
 
-## Author
-[`Devyanshi Tiwari`](https://github.com/devyanshi-t)<br />
 

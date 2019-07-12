@@ -113,42 +113,42 @@
         },
         "Web_NSGName": {
             "type": "string",
-            "defaultValue": "Web_NSG",
+            "defaultValue": "Web_NSG1",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to  Webserver Subnets"
             }
         },
         "Api_NSGName": {
             "type": "string",
-            "defaultValue": "Api_NSG",
+            "defaultValue": "Api_NSG1",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to API  Subnets"
             }
         },
         "Db_NSGName": {
             "type": "string",
-            "defaultValue": "Db_NSG",
+            "defaultValue": "Db_NSG1",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnets"
             }
         },
         "Web1_NSGName": {
             "type": "string",
-            "defaultValue": "Web_NSG",
+            "defaultValue": "Web_NSG2",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to  Webserver Subnets"
             }
         },
         "Api1_NSGName": {
             "type": "string",
-            "defaultValue": "Api_NSG",
+            "defaultValue": "Api_NSG2",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to API  Subnets"
             }
         },
         "Db1_NSGName": {
             "type": "string",
-            "defaultValue": "Db_NSG",
+            "defaultValue": "Db_NSG2",
             "metadata": {
                 "description": "This is name of the networkSecurityGroup that will be assigned to Database Subnets"
             }

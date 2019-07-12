@@ -39,5 +39,4 @@ New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFi
 
 Refer to the powershell.png file to see the implementation. <br/>Refer to the vnetparameter.json file to see the default values for the parameters .<br/>
 
-## Author
-[`Devyanshi Tiwari`](https://github.com/devyanshi-t)<br />
+

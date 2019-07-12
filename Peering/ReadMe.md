@@ -46,5 +46,4 @@ cd
  Note: In the peer. json file add your own subscrption id appropriately.<br/>
  Also note ,change the resource group  appropriately twice in the peer.json file while deploying the template.
 
-## Author
-[`Devyanshi Tiwari`](https://github.com/devyanshi-t)<br />
+
