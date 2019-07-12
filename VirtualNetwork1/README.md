@@ -32,10 +32,9 @@ Then type in all the parameter  values in the CLI .Refer to the cli.png file to 
 </a>
 </br>
 
-```bash 
-New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile path-to-template 
 ```
- 
+New-AzResourceGroupDeployment -ResourceGroupName resource-group-name -TemplateFile path-to-template
+ ```
  
 
 Refer to the powershell.png file to see the implementation. <br/>Refer to the vnetparameter.json file to see the default values for the parameters .<br/>

@@ -53,7 +53,7 @@
             "type": "string",
             "defaultValue": "10.0.4.0/24",
             "metadata": {
-                "description": "Subnet-2 Prefix"
+                "description": "Subnet-3 Prefix"
             }
         },
         "Web_NSGName": {
@@ -109,7 +109,7 @@
                             "description": "Allow  http to api",
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "destinationPortRanges":[ "80","443"],
+                            "destinationPortRanges":[ "81","444"],
                             "sourceAddressPrefix": "[parameters('subnetAddressPrefix1')]",
                             "destinationAddressPrefix": "[parameters('subnetAddressPrefix2')]",
                             "access": "Allow",
@@ -161,7 +161,7 @@
                             "description": "Allow connection from database",
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "destinationPortRanges":[ "80","443"],
+                            "destinationPortRanges":[ "81","444"],
                             "sourceAddressPrefix": "[parameters('subnetAddressPrefix3')]",
                             "destinationAddressPrefix": "[parameters('subnetAddressPrefix2')]",
                             "access": "Allow",
@@ -175,7 +175,7 @@
                             "description": "Allow  connection to web subnet",
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "destinationPortRanges":[ "80","443"],
+                            "destinationPortRanges":[ "82","445"],
                             "sourceAddressPrefix": "[parameters('subnetAddressPrefix2')]",
                             "destinationAddressPrefix": "[parameters('subnetAddressPrefix1')]",
                             "access": "Allow",
@@ -213,7 +213,7 @@
                             "description": "Allow connection from api subnet",
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "destinationPortRange": "3306",
+                            "destinationPortRange": "3307",
                             "sourceAddressPrefix": "[parameters('subnetAddressPrefix2')]",
                             "destinationAddressPrefix": "[parameters('subnetAddressPrefix3')]",
                             "access": "Allow",
