@@ -13,5 +13,4 @@
 
 
 
-## Author
-[`Devyanshi Tiwari`](https://github.com/devyanshi-t)<br />
+
