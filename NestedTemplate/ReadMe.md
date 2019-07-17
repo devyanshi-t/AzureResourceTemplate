@@ -11,9 +11,13 @@ Figure 1.1: High Level View of the Architecture
 Figure 1.2: Detailed Architecture in Azure
 
 
-In this template  two virtual networks are created  with three subnets each and having three network security groups associated with the subnets.Also  Peering is enabled betwwen the two virtual networks.
+In this template  two virtual networks are created  with three subnets each and having three network security groups associated with the subnets in different regions.Also  Peering is enabled betwwen the two virtual networks.
 
 Note: Incase of Disaster Recovery we are modifying the database NSG so that the database subnet of virtual network 1 can send its replica to database subnet of virtual network 2 through a specific port.
+# Disaster Recovery
+
+A PowerShell script is created which can be run in case of a disaster; this script creates a new security rule which allows the database of the first subnet to pass data into the second database subnet through a custom port.Since the two virtual network are part of different resource group , it ensures that even if the resource group is destroyed the user's data will be saved by storing the data in a different resource group.
+
 
 ###  Detail of the Architecture implemented
 <p allign="center">

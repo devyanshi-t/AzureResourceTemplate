@@ -1,7 +1,7 @@
 
 # this is a code which creates a new security rule in case of disaster to recover the content of the database subnet.
-$ResourceGroupName="DevyanshiFirstApp"# Add your own resource group accordingly
-$customport=3308# add your own custom port
+$ResourceGroupName="DevyanshiFirstApp" # Add your own resource group accordingly
+$customport=3308 # add your own custom port
 
 $rule1="DisasterRecoveryRule1"
 $rule2="DisasterRecoveryRule2"
@@ -25,7 +25,8 @@ $nsg1 | Add-AzNetworkSecurityRuleConfig -Name $rule2 -Description "Allow otbound
 -DestinationAddressPrefix "20.0.4.0/24" -DestinationPortRange $customport
 
 # Update the NSG.
-$nsg | Set-AzNetworkSecurityGroup
+$nsg1 | Set-AzNetworkSecurityGroup
+$nsg2 | Set-AzNetworkSecurityGroup
 
 
 
