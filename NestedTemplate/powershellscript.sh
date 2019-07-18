@@ -17,8 +17,8 @@ $nsg2 = Get-AzNetworkSecurityGroup -Name $nsgname2 -ResourceGroupName $ResourceG
 
 # Add the inbound security rule.
 $nsg2 | Add-AzNetworkSecurityRuleConfig -Name $rule1 -Description "Allow Coomunication from databse subnet 1 to to database subnet 2" -Access Allow `
--Protocol * -Direction Inbound -Priority 3000 -SourceAddressPrefix "20.0.4.0/24" -SourcePortRange $customport `
--DestinationAddressPrefix "10.0.4.0/24" -DestinationPortRange $customport
+-Protocol * -Direction Inbound -Priority 3000 -SourceAddressPrefix "10.0.4.0/24" -SourcePortRange $customport `
+-DestinationAddressPrefix "20.0.4.0/24" -DestinationPortRange $customport
 
 
 # Add the outbound security rule.
